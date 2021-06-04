@@ -56,7 +56,11 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Infrastructure
 
             if (ShouldSkip(browserKind))
             {
-                return;
+                var avail = String.Join("," BrowserManager.GetAvailableBrowsers());
+                var error = $"Skipping: {browserKind}: Available: {avail}";
+                Output.WriteLine(error);
+                throw new Exception(error);
+                //return;
             }
 
             TestBrowser = await BrowserManager.GetBrowserInstance(browserKind, BrowserContextInfo);
