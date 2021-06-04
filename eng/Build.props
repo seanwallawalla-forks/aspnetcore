@@ -52,9 +52,6 @@
                       $(RepoRoot)src\Components\WebView\Samples\BlazorWpfApp\**\*.csproj;
                       " />
 
-    <!-- Skipping due to build unreliability with current SDK et cetera. -->
-    <ProjectToExclude Include="
-                      $(RepoRoot)src/Components/test/E2ETestMigration/Microsoft.AspNetCore.Components.Migration.E2ETests.csproj" />
   </ItemGroup>
 
   <Choose>
