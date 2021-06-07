@@ -60,7 +60,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             var testOutcome = await TestPage.GetTextContentAsync("#test-outcome");
 
             Assert.Equal("OK", status);
-            Assert.Equal("OKL", statusText);
+            Assert.Equal("OK", statusText);
             Assert.Equal("", testOutcome);
         }
     }
