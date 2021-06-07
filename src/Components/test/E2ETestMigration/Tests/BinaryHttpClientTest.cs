@@ -47,6 +47,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
         {
             if (ShouldSkip(browserKind)) 
             {
+                Assert.Equal("Skipped", browserKind);
                 return;
             }
 
