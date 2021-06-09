@@ -6,7 +6,7 @@
     "ChromiumSandbox": true,
     "DumpIO": true,
     "IgnoreHTTPSErrors": true,
-    "Headless": false,
+    "Headless": true,
     "Timeout": 30000
   },
   "GlobalContextOptions": {
@@ -28,11 +28,11 @@
     },
     "Firefox": {
       "BrowserKind": "Firefox",
-      "IsEnabled": false
+      "IsEnabled": true
     },
     "Webkit": {
       "BrowserKind": "Webkit",
-      "IsEnabled": false
+      "IsEnabled": true
     }
   }
 }
