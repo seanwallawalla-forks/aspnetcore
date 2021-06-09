@@ -77,7 +77,7 @@
 
   <Target Name="PublishBasicTestApp" BeforeTargets="PublishAssets">
     <ItemGroup>
-        <ProjectToPublish Include="..\testassets\TestApp\MegaTestApp.csproj" />
+        <ProjectToPublish Include="..\testassets\MegaTestApp\MegaTestApp.csproj" />
     </ItemGroup>
     <MSBuild
       Projects="@(ProjectToPublish)"
