@@ -26,12 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\E2ETest\Microsoft.AspNetCore.Components.E2ETests.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true" />
     <ProjectReference Include="$(RepoRoot)src\Shared\BrowserTesting\src\Microsoft.AspNetCore.BrowserTesting.csproj" />
     <ProjectReference Include="..\..\WebAssembly\testassets\HostedInAspNet.Client\HostedInAspNet.Client.csproj" />
     <ProjectReference Include="..\..\WebAssembly\testassets\HostedInAspNet.Server\HostedInAspNet.Server.csproj" />
     <ProjectReference Include="..\..\WebAssembly\testassets\StandaloneApp\StandaloneApp.csproj" />
-    <ProjectReference Include="..\testassets\BasicTestApp\BasicTestApp.csproj" />
+    <ProjectReference Include="..\testassets\MegaTestApp\MegaTestApp.csproj" />
     <ProjectReference Include="..\testassets\GlobalizationWasmApp\GlobalizationWasmApp.csproj" />
     <ProjectReference Include="..\testassets\TestServer\Components.TestServer.csproj" />
 
@@ -78,27 +77,27 @@
 
   <Target Name="PublishBasicTestApp" BeforeTargets="PublishAssets">
     <ItemGroup>
-        <ProjectToPublish Include="..\testassets\BasicTestApp\BasicTestApp.csproj" />
+        <ProjectToPublish Include="..\testassets\TestApp\MegaTestApp.csproj" />
     </ItemGroup>
     <MSBuild
       Projects="@(ProjectToPublish)"
       Targets="Restore;Publish"
-      Properties="PublishDir=$(OutputPath)helixcontent\BasicTestApp\"
+      Properties="PublishDir=$(OutputPath)helixcontent\MegaTestApp\"
      />
     <ItemGroup>
-      <_PublishBasicFiles Include="$(OutputPath)helixcontent\BasicTestApp\**\*.*" />
+      <_PublishBasicFiles Include="$(OutputPath)helixcontent\MegaTestApp\**\*.*" />
     </ItemGroup>
-    <Copy SourceFiles="@(_PublishBasicFiles)" DestinationFolder="$(OutputPath)\testassets\BasicTestApp\%(_PublishBasicFiles.RecursiveDir)\" />
+    <Copy SourceFiles="@(_PublishBasicFiles)" DestinationFolder="$(OutputPath)\testassets\MegaTestApp\%(_PublishBasicFiles.RecursiveDir)\" />
 
   </Target>
 
   <Target Name="PublishAssets" AfterTargets="Publish">
     <ItemGroup>
       <_PublishFiles Include="$(OutputPath).playwright\**\*.*" />
-      <_PublishBasicFiles Include="$(OutputPath)helixcontent\BasicTestApp\**\*.*" />
+      <_PublishBasicFiles Include="$(OutputPath)helixcontent\MegaTestApp\**\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(_PublishFiles)" DestinationFolder="$(PublishDir)\.playwright\%(_PublishFiles.RecursiveDir)\" />
-    <Copy SourceFiles="@(_PublishBasicFiles)" DestinationFolder="$(PublishDir)\testassets\BasicTestApp\%(_PublishBasicFiles.RecursiveDir)\" />
+    <Copy SourceFiles="@(_PublishBasicFiles)" DestinationFolder="$(PublishDir)\testassets\MegaTestApp\%(_PublishBasicFiles.RecursiveDir)\" />
   </Target>
 
 </Project>

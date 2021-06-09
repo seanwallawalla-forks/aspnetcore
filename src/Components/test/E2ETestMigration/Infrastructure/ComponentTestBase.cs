@@ -24,7 +24,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Infrastructure
 
         protected async Task MountTestComponentAsync(IPage page)
         {
-            var componentTypeName = TestComponent.Assembly == typeof(BasicTestApp.Program).Assembly ?
+            var componentTypeName = TestComponent.Assembly == typeof(MegaTestApp.Program).Assembly ?
                 TestComponent.FullName :
                 TestComponent.AssemblyQualifiedName;
             var testSelector = await page.WaitForSelectorAsync("#test-selector > select");
